@@ -23,7 +23,7 @@
     // 设置本地通知消息体
     localNotice.alertBody = @"有短消息了";
     // 设置本地通知触发时间
-    localNotice.fireDate = [NSDate dateWithTimeIntervalSinceNow:2];
+    localNotice.fireDate = [NSDate dateWithTimeIntervalSinceNow:4];
     
     // 以下是发送通知的额外 属性
     //1. 是否设置重复发送, NSCalendarUnitMinute 表示每隔一分钟发送一次

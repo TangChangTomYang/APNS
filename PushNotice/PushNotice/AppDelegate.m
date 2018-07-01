@@ -14,7 +14,7 @@
 
 @implementation AppDelegate
 
-
+#pragma mark- 注册 本地推送和远程推送通知
 /** 创建一个选择 选项组 */
 -(UIMutableUserNotificationCategory *)selectCategory{
     
@@ -89,6 +89,8 @@
     
 }
 
+
+#pragma mark- AppDelegate
 /** 本地推送通知的使用
  1、创建UILocalNotification对象
  2、设置一些必要的参数
@@ -104,13 +106,26 @@
     
     // launchOptions 启动字典
     // 一般通过其他方式启动(非点击应用图标启动)app,都会把一些需要传递的参数,放到这个字典中
-    NSString *des = launchOptions.description;
- 
-    if (des.length > 0) {
-        [des writeToFile:@"/Users/yang/Desktop/abc.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    
+    //1. 本地推送通知
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+     
         
         
-    }
+        
+      CGFloat width =  [UIScreen mainScreen].bounds.size.width;
+      CGFloat height =  [UIScreen mainScreen].bounds.size.height;
+        UITextView *textV = [[UITextView alloc]initWithFrame:CGRectMake(0, 200, width, height- 200)];
+        textV.backgroundColor = [UIColor orangeColor];
+        textV.text = ((NSDictionary *)launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]).description;
+        [application.keyWindow addSubview:textV];
+    });
+   
+//    NSDictionary *dic = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+//    if (dic != nil) {
+//
+//        [dic.description writeToFile:@"/Users/yang/Desktop/abcsad.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+//    }
     /**
      
      {
@@ -138,7 +153,7 @@
 
 
 
-
+#pragma mark- 本地 推送通知
 /** (本地通知)当接收到通知,且满足以下3种情况中的一种时,会调用此方法
  1: 当 app 在前台
  2: 在后台,用户点击了通知
@@ -147,14 +162,17 @@
 -(void)application:(UIApplication *)app didReceiveLocalNotification:(nonnull UILocalNotification *)notification{
     
     if (app.applicationState == UIApplicationStateActive) {
-         NSLog(@"---app在前台时--------接收到通知");
+        // 接收到本地推送通知,用户点击了前台操作按钮会来到这里, 需要处理页面跳转的问题
+         NSLog(@"---接收到本地推送通知,用户点击了前台操作按钮会来到这里");
     }
     else  if (app.applicationState == UIApplicationStateInactive) {
-         NSLog(@"---app在后台时--------接收到通知");
+        // 接收到本地推送通知,用户点击了前台操作按钮会来到这里, 手机仅仅处理一下操作即可(不会进入前台)
+         NSLog(@"---接收到本地推送通知,用户点击了 在后台操作按钮会来到这里");
     }
 }
 
-/** 9.0 之前用这个  */
+/** 9.0 之前用这个
+  当用户点击了通知上的按钮操作就会来到这个方法*/
 -           (void)application:(UIApplication *)application
    handleActionWithIdentifier:(nullable NSString *)identifier
 forLocalNotification:(nonnull UILocalNotification *)notification
@@ -165,7 +183,7 @@ forLocalNotification:(nonnull UILocalNotification *)notification
 }
 
 /** 9.0 之后用这个
- 当用户点击了通知上的自动一按钮操作就会来到这个方法*/
+ 当用户点击了通知上的按钮操作就会来到这个方法*/
 -           (void)application:(UIApplication *)application
    handleActionWithIdentifier:(nullable NSString *)identifier
          forLocalNotification:(nonnull UILocalNotification *)notification
@@ -184,18 +202,39 @@ forLocalNotification:(nonnull UILocalNotification *)notification
       completionHandler();
 }
 
-/**
-{"aps":{"alert":"This is some fancy message.","badge":1}}
- */
 
-/** 当获取到 注册远程推送通知 就会来到这个方法
- 参数1:
- 参数2:
- 参数3:
- 参数4:
- */
+#pragma mark- 远程推送通知
+
+/** 当获取到 注册远程推送通知 就会来到这个方法*/
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken{
     
     NSLog(@"deviceToken: %@",deviceToken);
 }
+
+
+/** 发送远程推送通知之后,满足以下条件会调用该方法
+ 1:当app 在前台会调用
+ 2:当用户点击通知,从后台进入前台会调用
+ 3:当完全关闭,点击不会来到这个方法
+ 参数4:
+ */
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo{
+    
+    
+}
+
+
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    
+}
+
+
+
+
+
+
+
+
 @end
