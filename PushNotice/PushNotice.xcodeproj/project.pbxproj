@@ -26,7 +26,6 @@
 		2F20E8D520E89E98006A3AC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F20E8D720E89E98006A3AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F20E8D820E89E98006A3AC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2F20E8E120E9258E006A3AC1 /* PushNotice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotice.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +58,6 @@
 		2F20E8C820E89E98006A3AC1 /* PushNotice */ = {
 			isa = PBXGroup;
 			children = (
-				2F20E8E120E9258E006A3AC1 /* PushNotice.entitlements */,
 				2F20E8C920E89E98006A3AC1 /* AppDelegate.h */,
 				2F20E8CA20E89E98006A3AC1 /* AppDelegate.m */,
 				2F20E8CC20E89E98006A3AC1 /* ViewController.h */,

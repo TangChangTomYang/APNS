@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,37 +16,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6m-WH-GGG">
-                                <rect key="frame" x="16" y="97" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6m-WH-GGG">
+                                <rect key="frame" x="16" y="206" width="62" height="30"/>
                                 <state key="normal" title="发送通知"/>
                                 <connections>
                                     <action selector="sendNoticeBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6SC-xe-lo0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-Gh-u1x">
-                                <rect key="frame" x="121" y="97" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycA-Gh-u1x">
+                                <rect key="frame" x="121" y="206" width="62" height="30"/>
                                 <state key="normal" title="取消通知"/>
                                 <connections>
                                     <action selector="cancleNoticeBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uez-X9-mcE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPz-7T-90j">
-                                <rect key="frame" x="226" y="97" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPz-7T-90j">
+                                <rect key="frame" x="226" y="206" width="62" height="30"/>
                                 <state key="normal" title="查看通知"/>
                                 <connections>
                                     <action selector="checkNoticeBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="81W-WL-KUT"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QPz-7T-90j" secondAttribute="trailing" constant="87" id="75I-eg-T8f"/>
+                            <constraint firstItem="QPz-7T-90j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ycA-Gh-u1x" secondAttribute="trailing" symbolic="YES" id="BWt-yj-Fm7"/>
+                            <constraint firstItem="ycA-Gh-u1x" firstAttribute="baseline" secondItem="QPz-7T-90j" secondAttribute="baseline" id="ESI-th-rs9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6m-WH-GGG" secondAttribute="bottom" constant="431" id="G5g-nn-1zz"/>
+                            <constraint firstItem="m6m-WH-GGG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="KUA-PM-74e"/>
+                            <constraint firstItem="m6m-WH-GGG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="206" id="Q5e-xx-2NG"/>
+                            <constraint firstItem="ycA-Gh-u1x" firstAttribute="leading" secondItem="m6m-WH-GGG" secondAttribute="trailing" constant="43" id="RoI-N6-FEi"/>
+                            <constraint firstItem="ycA-Gh-u1x" firstAttribute="baseline" secondItem="m6m-WH-GGG" secondAttribute="baseline" id="kBn-VJ-dPl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="133"/>
         </scene>
     </scenes>
 </document>

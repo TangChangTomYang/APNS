@@ -102,17 +102,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self registUsrNotificantion];
+//    [self registUsrNotificantion];
     
     // launchOptions 启动字典
     // 一般通过其他方式启动(非点击应用图标启动)app,都会把一些需要传递的参数,放到这个字典中
     
     //1. 本地推送通知
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-     
-        
-        
-        
+      
       CGFloat width =  [UIScreen mainScreen].bounds.size.width;
       CGFloat height =  [UIScreen mainScreen].bounds.size.height;
         UITextView *textV = [[UITextView alloc]initWithFrame:CGRectMake(0, 200, width, height- 200)];
@@ -184,7 +181,7 @@ forLocalNotification:(nonnull UILocalNotification *)notification
 
 /** 9.0 之后用这个
  当用户点击了通知上的按钮操作就会来到这个方法*/
--           (void)application:(UIApplication *)application
+- (void)application:(UIApplication *)application
    handleActionWithIdentifier:(nullable NSString *)identifier
          forLocalNotification:(nonnull UILocalNotification *)notification
              withResponseInfo:(nonnull NSDictionary *)responseInfo
