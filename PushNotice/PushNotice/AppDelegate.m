@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+# include <arpa/inet.h>
 
 @interface AppDelegate ()
 
@@ -102,7 +103,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [self registUsrNotificantion];
+    [self registUsrNotificantion];
     
     // launchOptions 启动字典
     // 一般通过其他方式启动(非点击应用图标启动)app,都会把一些需要传递的参数,放到这个字典中
@@ -204,8 +205,13 @@ forLocalNotification:(nonnull UILocalNotification *)notification
 
 /** 当获取到 注册远程推送通知 就会来到这个方法*/
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken{
-    
     NSLog(@"deviceToken: %@",deviceToken);
+//   NSString *str = [deviceToken base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    
+    NSString *str = [self translateDeviceToken:deviceToken];
+    NSLog(@"deviceToken str: %@",str);
+    
+    
 }
 
 
@@ -230,8 +236,25 @@ forLocalNotification:(nonnull UILocalNotification *)notification
 
 
 
-
-
-
+- (NSString *)translateDeviceToken:(NSData *)deviceTokenData {
+    if (deviceTokenData == nil || ![deviceTokenData isKindOfClass:[NSData class]]) {
+        
+        return nil;
+        
+    }
+    
+    // hexDataString 
+    const unsigned *tokenBytes = [deviceTokenData bytes];
+    NSString *deviceTokenStr = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",                              ntohl(tokenBytes[0]),
+                                ntohl(tokenBytes[1]),
+                                ntohl(tokenBytes[2]),
+                                ntohl(tokenBytes[3]),
+                                ntohl(tokenBytes[4]),
+                                ntohl(tokenBytes[5]),
+                                ntohl(tokenBytes[6]),
+                                ntohl(tokenBytes[7])];
+    return deviceTokenStr;
+    
+}
 
 @end

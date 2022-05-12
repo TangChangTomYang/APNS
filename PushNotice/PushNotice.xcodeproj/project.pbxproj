@@ -285,13 +285,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushNotice/PushNotice.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = UM24Q5JH6X;
+				DEVELOPMENT_TEAM = C86RN5RXW8;
 				INFOPLIST_FILE = PushNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.guangheloveHouse.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cib.tytx.cake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b94a0bf0-4da0-4100-8727-f926550cc46a";
-				PROVISIONING_PROFILE_SPECIFIER = push;
+				PROVISIONING_PROFILE_SPECIFIER = Cake_Dev_Profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -301,13 +301,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PushNotice/PushNotice.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C86RN5RXW8;
 				INFOPLIST_FILE = PushNotice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.guangheloveHouse.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cib.tytx.cake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Cake_Dis_Profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
